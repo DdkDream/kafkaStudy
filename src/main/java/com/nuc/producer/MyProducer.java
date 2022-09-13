@@ -6,9 +6,10 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.sql.ClientInfoStatus;
 import java.util.Properties;
+import java.util.concurrent.ExecutionException;
 
 public class MyProducer {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         // 1、创建Kafka生产者的配置信息
         Properties properties = new Properties();
@@ -41,7 +42,7 @@ public class MyProducer {
 
         // 10、发送数据
         for(int i = 0; i < 10; i++){
-            producer.send(new ProducerRecord<>("first", "atguigu--" + i));
+            producer.send(new ProducerRecord<>("first", "atguigu--" + i)).get();
         }
 
 //        Thread.sleep(100);
