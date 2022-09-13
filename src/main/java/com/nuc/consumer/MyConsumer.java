@@ -21,6 +21,7 @@ public class MyConsumer {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "hadoop101:9092");
         // 开启自动提交
         properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
+        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         // 自动提交的延时
         properties.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, "1000");
 
