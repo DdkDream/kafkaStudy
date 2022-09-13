@@ -2,6 +2,7 @@ package com.nuc.producer;
 
 import org.apache.kafka.clients.producer.*;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class CallBackProducer {
@@ -16,9 +17,14 @@ public class CallBackProducer {
         // 2、创建生产者对象
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
+        ArrayList<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("b");
+        list.add("c");
+
         // 3、发送数据
         for(int i = 0; i < 10; i++){
-            producer.send(new ProducerRecord<>("aaa", "atguigu--" + i), (recordMetadata, e) -> {
+            producer.send(new ProducerRecord<>("aaa", "atguigu", "atguigu--" + i), (recordMetadata, e) -> {
                 if(e == null){
                     System.out.println(recordMetadata.partition() + "--" + recordMetadata.offset());
                 }else{
