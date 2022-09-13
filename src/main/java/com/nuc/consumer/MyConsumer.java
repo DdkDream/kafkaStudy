@@ -30,7 +30,10 @@ public class MyConsumer {
         properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringDeserializer");
 
         // 消费者组
-        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "bigdata");
+        properties.put(ConsumerConfig.GROUP_ID_CONFIG, "bigdata1");
+
+        // 重置消费者的offest
+        properties.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
         // 创建消费者
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
