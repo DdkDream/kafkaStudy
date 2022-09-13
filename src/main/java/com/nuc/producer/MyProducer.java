@@ -42,7 +42,7 @@ public class MyProducer {
 
         // 10、发送数据
         for(int i = 0; i < 10; i++){
-            producer.send(new ProducerRecord<>("first", "atguigu--" + i)).get();
+            producer.send(new ProducerRecord<>("first", "nuc", "atguigu--" + i)).get();
         }
 
 //        Thread.sleep(100);
